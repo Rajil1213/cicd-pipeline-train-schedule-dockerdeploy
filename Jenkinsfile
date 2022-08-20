@@ -15,10 +15,11 @@ pipeline {
             steps{
                 script {
                     app = docker.build("whitenoise1213/train-schedule")
-                }
-                app.inside {
+                    app.inside {
                         sh 'echo $(curl localhost:8080)'
                 }
+                }
+                
                 milestone(1)
             }
       
